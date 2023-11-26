@@ -24,4 +24,5 @@ Follow these steps to get started with VocaSpanish:
 - I welcome contributions from the community! If you have ideas for new features, improvements, or bug fixes, please open an issue or submit a pull request following our contribution guidelines.
 
 # License
-VocaSpanish is licensed under the MIT License - see the LICENSE file for details.
+VocaSpanish is licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0) - see the [LICENSE](LICENSE) file for details.
+
