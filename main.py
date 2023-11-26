@@ -39,6 +39,7 @@ while choice == "invalid":
 
 #Function to check similarity of words
 def check_similarity(lanugageWord, text):
+  '''Checks if your answer is correct based off how similar it is to the correct answer'''
   similarity = (SequenceMatcher(None, lanugageWord, text).ratio())
   if similarity >= 0.46:
     print("Correct!")
@@ -47,13 +48,16 @@ def check_similarity(lanugageWord, text):
   else:
     print("Incorrect. The correct answer is " + lanugageWord + ". You said " + text + ".")
 
+#Initialize variables for loop 
 completedWords = []
 wordsDone = 0
 
+#Loop through vocab words
 for spanishWord, englishWord in vocab.items():
+    #Check if word has been done
     if englishWord not in completedWords and spanishWord not in completedWords and wordsDone < int(amountOfWords):
         if mode == "english":
-            # Text to speech for Spanish
+            #Text to speech for Spanish
             tts = gTTS(text=spanishWord, lang="es")
             tts.save("current.mp3")
             playsound("current.mp3")
@@ -78,7 +82,7 @@ for spanishWord, englishWord in vocab.items():
             playsound("current.mp3")
             os.remove("current.mp3")
 
-            # Recognize speech for English
+            #Recognize speech for English
             r = sr.Recognizer()
             text = "default"
 
@@ -88,9 +92,9 @@ for spanishWord, englishWord in vocab.items():
                     text = r.recognize_google(audio, language="es-US")
                 except:
                     pass
-
             check_similarity(spanishWord, text)
-
+        
+        #Add words to completed list
         completedWords.append(englishWord)
         completedWords.append(spanishWord)
         wordsDone += 1    
