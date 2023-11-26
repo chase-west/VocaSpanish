@@ -24,10 +24,18 @@ while choice == "invalid":
         print("Invalid input.")
         choice = "invalid"
 
-amountOfWords = input("\nHow many words would you like to learn (a for all): ")
+choice = "invalid"
+while choice == "invalid":
+    amountOfWords = input("\nHow many words would you like to learn (a for all): ")
 
-if amountOfWords == "a":
-    amountOfWords = len(vocab)
+    if amountOfWords == "a":
+        amountOfWords = len(vocab)
+        choice = "valid"
+    elif amountOfWords.isnumeric() == False:
+        print("Invalid input.")
+        choice = "invalid"
+    elif amountOfWords.isnumeric() == True:
+        choice = "valid"
 
 #Function to check similarity of words
 def check_similarity(lanugageWord, text):
