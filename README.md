@@ -1,4 +1,7 @@
 # VocaSpanish - Spanish Vocabulary Practice App
+![Screenshot 2023-11-25 192130 (2)](https://github.com/chase-west/VocaSpanish/assets/57733840/aa663eca-73bd-488b-97d9-dbcad804d790)
+
+# Overview
 VocaSpanish is a Python application designed to enhance your Spanish vocabulary through the use of voice recognition and text-to-speech capabilities. I personally built this app because I wanted to be able to multitask while learning my spanish vocabulary for class. 
 
 # How it works
