@@ -110,3 +110,15 @@ vocab = {
     "tócate (command)": "touch",
     "vestirse (i, i)": "to get dressed"
 }
+
+
+
+def isStemChanging():
+    for word in vocab:
+        if "(ie)" in word or "(i)" in word or "(ue)" in word:
+            print(f"{word}: yes")
+        else:
+            print(f"{word}: no")
+
+isStemChanging()
+
