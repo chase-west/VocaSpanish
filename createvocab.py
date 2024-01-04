@@ -120,5 +120,3 @@ def isStemChanging():
         else:
             print(f"{word}: no")
 
-isStemChanging()
-

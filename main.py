@@ -43,10 +43,20 @@ def check_similarity(lanugageWord, text):
   similarity = (SequenceMatcher(None, lanugageWord, text).ratio())
   if similarity >= 0.46:
     print("Correct!")
+    text_to_speech("Correct!", "en")
   elif text == "default":
     print("No input detected. The correct answer is " + lanugageWord + ".")
+    text_to_speech("No input detected. The correct answer is " + lanugageWord + ".", "en")
   else:
     print("Incorrect. The correct answer is " + lanugageWord + ". You said " + text + ".")
+    text_to_speech("Incorrect. The correct answer is " + lanugageWord + ". You said " + text + ".", "en")
+
+def text_to_speech(text, lang):
+    '''Converts text to speech'''
+    tts = gTTS(text=text, lang=lang)
+    tts.save("current.mp3")
+    playsound("current.mp3")
+    os.remove("current.mp3")
 
 #Initialize variables for loop 
 completedWords = []
@@ -58,10 +68,7 @@ for spanishWord, englishWord in vocab.items():
     if englishWord not in completedWords and spanishWord not in completedWords and wordsDone < int(amountOfWords):
         if mode == "english":
             #Text to speech for Spanish
-            tts = gTTS(text=spanishWord, lang="es")
-            tts.save("current.mp3")
-            playsound("current.mp3")
-            os.remove("current.mp3")
+            text_to_speech(spanishWord, "es")
 
             # Recognize speech for English
             r = sr.Recognizer()
