@@ -20,7 +20,7 @@ Follow these steps to get started with VocaSpanish:
 # Requirements
 - Python 3.x
 - [gTTS](https://pypi.org/project/gTTS/) library
-- [playsound](https://pypi.org/project/playsound/) library
+- playsound library, download using pip install playsound==1.2.2
 - [speech_recognition](https://pypi.org/project/SpeechRecognition/) library
 - [difflib](https://docs.python.org/3/library/difflib.html) library (most likely a built in module). 
 # Contribution Guidelines
