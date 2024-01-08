@@ -9,6 +9,7 @@ from createvocab import vocab
 choice = "invalid"
 while choice == "invalid":
     spanOrEnglish = input("Would you like to translate to spanish or english? (s/e): ")
+    spanOrEnglish = spanOrEnglish.lower()
 
     if spanOrEnglish == "s":
         print("Spanish mode selected.")
@@ -64,8 +65,8 @@ def text_to_speech(text, lang):
     playsound("current.mp3")
     os.remove("current.mp3")
 
-#Function to get user input 
-def get_user_input(language=None):
+#Function to get user voice input 
+def get_user_voice_input(language=None):
     '''Gets user input'''
     r = sr.Recognizer()
     text = "default"
@@ -103,7 +104,7 @@ def get_user_input(language=None):
 completedWords = []
 wordsDone = 0
 
-#Loop through vocab words
+#Loop through vocab 
 for spanishWord, englishWord in vocab.items():
     #Check if word has been done
     if englishWord not in completedWords and spanishWord not in completedWords and wordsDone < int(amountOfWords):
@@ -112,15 +113,15 @@ for spanishWord, englishWord in vocab.items():
             text_to_speech(spanishWord, "es")
 
             # Recognize speech for English
-            text = get_user_input()
+            text = get_user_voice_input()
             check_similarity(englishWord, text)
 
         elif mode == "spanish":
             #Text to speech for English
             text_to_speech(englishWord, "en")
 
-            #Recognize speech for Spanish
-            text = get_user_input("es-ES")
+            #Recognize speech for gSpanish
+            text = get_user_voice_input("es-ES")
             check_similarity(spanishWord, text)
         
         #Add words to completed list
